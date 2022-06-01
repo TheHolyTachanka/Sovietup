@@ -7,7 +7,7 @@ use clap::Parser;
 #[clap(author, version, about, long_about = None)]
 struct Args {
 
-    #[clap(short, long, default_value = "0.1.1")]
+    #[clap(short, long, default_value = "0.1.3")]
     version: String,
 }
 
@@ -59,7 +59,7 @@ pub async fn download_file(client: &Client, url: &str, path: &str) -> Result<(),
 async fn main() {
     let args = Args::parse();
     let version = args.version;
-    let name = "/soviet-grub-".to_owned() + &version + ".iso";
+    let name = "soviet-linux-x86_64-".to_owned() + &version + ".iso";
     let url = "https://sovietlinux.ml/iso/".to_owned() + &version + "/" + &name;
     let path = "../".to_owned() + &name;
 
